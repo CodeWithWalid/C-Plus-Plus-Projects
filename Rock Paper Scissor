@@ -1,0 +1,32 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+    srand(time(0));
+    string choice[] = {"Rock", "Paper", "Scissor"};
+    int playerChoice, computerChoice;
+
+    cout << "Let''s Go Rock, Paper, Scissor!"<< endl;
+    cout << "Enter your Choice: " << endl;
+    cout << "0-Rock, 1-Paper, 2-Scissor" << endl;
+    cin >> playerChoice;
+
+    computerChoice = rand() % 3;
+
+    cout << "Your choice: " << choice[playerChoice] <<endl;
+    cout << "Computer Choice: " << choice[computerChoice] << endl;
+
+    if(playerChoice == computerChoice){
+        cout << "It's a tie" << endl;
+    } else if ((playerChoice == 0 && computerChoice == 2) || (playerChoice == 1 && computerChoice == 0) || (playerChoice == 2 && computerChoice == 1)){
+        cout << "You win!" << endl;
+    } else {
+        cout << "Computer wins!" << endl;
+    }
+
+    return 0;
+}

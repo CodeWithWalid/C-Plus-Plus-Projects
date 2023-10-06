@@ -1,0 +1,152 @@
+#include  <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    char operation;
+    double num, result;
+
+    cout << "Scientific Calcualtor" << endl;
+    cout << "Available Operation: " << endl;
+    cout << "1. Addition (+)" << endl;
+    cout << "2. Subtraction (-)" << endl;
+    cout << "3. Multiplication (*)" << endl;
+    cout << "4. Division (/)" << endl;
+    cout << "5. Square Root (s)" << endl;
+    cout << "6. Logarithm (l)" << endl;
+    cout << "7. Exponentiation (p)" << endl;
+    cout << "8. Sine (n)" << endl;
+    cout << "9. Cosine (c)" << endl;
+    cout << "10. Tangent (t)" << endl;
+    cout << "11. Cosecant (x)" << endl;
+    cout << "12. Secant (y)" << endl;
+
+    cout << "Enter an operation: ";
+    cin >> operation;
+
+    switch (operation)
+    {
+    case '+':
+        cout << "Enter two numbers: ";
+        cin >> num >> result;
+        result = num + result;
+        break;
+    case '-':
+        cout << "Enter two numbers: ";
+        cin >> num >> result;
+        result = num - result ;
+        break;
+    case '*':
+        cout << "Enter two numbers: ";
+        cin >> num >> result;
+        result = num * result;
+        break;
+    case '/':
+        cout << "Enter two numbers: ";
+        cin >> num >> result;
+        if(result != 0)
+        {
+            result = num / result;
+        }
+        else
+        {
+            cout << "Error: Division by zero." << endl;
+            return 1;
+        }
+        break;
+    case 's':
+    case 'S':
+        cout << "Enter a number: ";
+        cin >> num;
+        if(num > 0)
+        {
+            result = sqrt(num);
+        }
+        else
+        {
+            cout << "Error: Square root of aregative number." << endl;
+            return 1;
+        }
+        break;
+    case 'l':
+    case 'L':
+        cout << "Enter a number: ";
+        cin >> num;
+        if(num > 0)
+        {
+            result = log(num);
+        }
+        else
+        {
+            cout << "Error: Logarithm of a non-negative number." << endl;
+            return 1;
+        }
+        break;
+    case 'p':
+    case 'P':
+        cout << "Enter the base nuimber: ";
+        cin >> num;
+        cout << "Enter an exponent: ";
+        cin >> result;
+        result = pow(num,result);
+        break;
+    case 'n':
+    case 'N':
+        cout << "Enter an angle of a radius: ";
+        cin >> num;
+        num = num * M_PI / 180.00; //Convert Degree to Radius
+        result = sin(num);
+        break;
+    case 'c':
+    case 'C':
+        cout << "Enter an angle of a radius: ";
+        cin >> num;
+        num = num * M_PI / 180.00; //Convert Degree to Radius
+        result = cos(num);
+        break;
+    case 't':
+    case 'T':
+        cout << "Enter an angle of a radius: ";
+        cin >> num;
+        num = num * M_PI / 180.00; //Convert Degree to Radius
+        result = tan(num);
+        break;
+    case 'e':
+    case 'E':
+        cout << "Enter an angle of a radius: ";
+        cin >> num;
+        num = num * M_PI / 180.00; //Convert Degree to Radius
+        if(num != 0)
+        {
+            result = 1/sin(num);
+        }
+        else
+        {
+            cout << "Error: Cosecant of zero." << endl;
+            return 1;
+        }
+        break;
+    case 'q':
+    case 'Q':
+        cout << "Enter an angle of a radius: ";
+        cin >> num;
+        num = num * M_PI / 180.00; //Convert Degree to Radius
+        if(num != 0)
+        {
+            result = 1/cos(num);
+        }
+        else
+        {
+            cout << "Error: Secant of zero." << endl;
+            return 1;
+        }
+        break;
+    default:
+        cout << "Invalid Operation." << endl;
+        return 1;
+    }
+    cout << "Result: " << result << endl;
+    return 0;
+}
